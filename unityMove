@@ -1,0 +1,22 @@
+//第一种
+void Update()
+    {   
+        float horizontal = Input.GetAxis("Horizontal");//
+        float vetical = Input.GetAxis("Vetical");
+ 
+       transform.Translate(horizontal*speed*Time.deltaTime,vetical*speed*Time.deltaTime,0);
+       //或
+       transform.position += new Vector3(horizontal*speed*Time.deltaTime,vetical*speed*Time.deltaTime,0);
+    }
+//第二种
+    public Rigidbody rb;
+    public float speed;
+    void FixedUpdate()
+    {   
+        float horizontal = Input.GetAxis("Horizontal");
+        float vetical = Input.GetAxis("Vetical");
+ 
+        rb.AddForce(horizontal*speed*Time.fixedDeltaTime,vetical*speed*Time .fixedDeltaTime,0);
+       //或
+        rb.velocity = new Vector3(horizontal*speed*Time.fixedDeltaTime,vetical*speed*Time.fixedDeltaTime,rb.velocity.z);
+    }  
